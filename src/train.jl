@@ -247,7 +247,7 @@ function em!(gmm::GMM, x::DataOrMatrix; nIter::Int = 10, varfloor::Float64=1e-3,
     
     for i in 1:nIter
         ## E-step
-        nₓ, ll[i], N, F, S = stats(gmm, x, parallel=true)
+        nₓ, ll[i], N, F, S = stats(gmm, x, parallel=false)
         ## M-step
         gmm.w = N / nₓ
         gmm.μ = F ./ N
